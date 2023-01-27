@@ -26,7 +26,7 @@ void printArray(double [,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Write($"{array[i,j],3}");
+            Write($"{array[i,j],7}");
         }
         WriteLine("");
     }
