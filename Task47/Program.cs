@@ -3,6 +3,9 @@
 Write("Введите размер массива, а также миниальное и максимальное числа через запятую: ");
 string [] parametres = ReadLine()!.Split(",", StringSplitOptions.RemoveEmptyEntries);
 
+double [,] doubleArray = getArray(int.Parse(parametres[0]), int.Parse(parametres[1]), Convert.ToDouble(parametres[2]), Convert.ToDouble(parametres[3]));
+printArray(doubleArray);
+
 double [,] getArray(int rows, int columns, double minValue, double maxValue)
 {
     double delta = maxValue - minValue;
@@ -23,7 +26,7 @@ void printArray(double [,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Write($"{array[i,j],5}");
+            Write($"{array[i,j],3}");
         }
         WriteLine("");
     }
