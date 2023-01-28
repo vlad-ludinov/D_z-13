@@ -1,11 +1,9 @@
 ﻿//я же правильно понял что массив должен сделать я сам в этой задаче?
-/*и вообще показывать массив нет смысла 
-так как тогда можно было бы самому 
-посмотреть число под нужным тебе индексом*/
 using static System.Console;
 
 int [,] array = getArray();
 WriteLine($"Задан массив размером {array.GetLength(0)} на {array.GetLength(1)}");
+printArray(array);
 Write("Введите индекс массива через точку с запятой: ");
 string [] index = ReadLine()!.Split(";", StringSplitOptions.RemoveEmptyEntries);
 findNumber(array,index);
@@ -35,4 +33,16 @@ void findNumber(int [,] arr, string [] ind)
         WriteLine("Такого индекса в массиве нет");
     }
 
+}
+
+void printArray(int [,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Write($"{array[i,j],4}");
+        }
+        WriteLine("");
+    }
 }
