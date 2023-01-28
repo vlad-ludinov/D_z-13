@@ -5,28 +5,40 @@
 int [,] getArray()
 {
     Random rnd = new Random();
-    int [,] array = new int [rnd.Next(3,7), rnd.Next(3,7)];
-    for (int i = 0; i < array.GetLength(0); i++)
+    int [,] arr = new int [rnd.Next(3,7), rnd.Next(3,7)];
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            array[i,j] = rnd.Next(1,11);
+            arr[i,j] = rnd.Next(1,11);
         }
     }
-    return array;
+    return arr;
 }
 
-double [] findAverage(int [,] array);
+double [] findAverage(int [,] arr);
 {
-    double [] average = new double [array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(1); i++)
+    double [] average = new double [arr.GetLength(1)];
+    for (int i = 0; i < arr.GetLength(1); i++)
     {
         sum = 0;
-        for (int j = 0; j < array.GetLength(0); j++)
+        for (int j = 0; j < arr.GetLength(0); j++)
         {
-            sum += array[j,i];
+            sum += arr[j,i];
         }
-        average[i] = sum / array.GetLength(0);
+        average[i] = sum / arr.GetLength(0);
     }
     return average;
+}
+
+void printArray(int [,] arr)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Write($"{arr[i,j],4}");            
+        }
+        WriteLine("");
+    }
 }
