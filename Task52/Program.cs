@@ -1,5 +1,10 @@
 ﻿using static System.Console;
 
+WriteLine("Задан массив: ");
+int [,] array = getArray();
+printArray(array);
+double [] averageColumns = findAverage(array);
+WriteLine($"Среднее арифметическое столбцов: {String.Join("; ",averageColumns)}");
 
 
 int [,] getArray()
@@ -16,17 +21,18 @@ int [,] getArray()
     return arr;
 }
 
-double [] findAverage(int [,] arr);
+
+double [] findAverage(int [,] arr)
 {
     double [] average = new double [arr.GetLength(1)];
     for (int i = 0; i < arr.GetLength(1); i++)
     {
-        sum = 0;
+        double sum = 0;
         for (int j = 0; j < arr.GetLength(0); j++)
         {
-            sum += arr[j,i];
+            sum += Convert.ToDouble(arr[j,i]);
         }
-        average[i] = sum / arr.GetLength(0);
+        average[i] = Math.Round((sum/ arr.GetLength(0)),1);
     }
     return average;
 }
